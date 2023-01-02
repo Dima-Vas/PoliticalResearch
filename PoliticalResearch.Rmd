@@ -8,11 +8,47 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 
 ```{r}
-csv_data <- read.csv("preprocessed_anonymous.csv")
+require(BSDA)
+library(BSDA)
+require(EnvStats)   
+library(EnvStats)
+library(tidytext)
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(stringr)
 ```
 
 ```{r}
+path<-"dataset/preprocessed_anonymous.csv"
+data <-  read.csv(file = path, stringsAsFactors = FALSE)
 
+```
+
+```{r}
+for (axe in c("econ", "dipl", "govt", "scty")){
+  some<-data[axe]
+  #???
+  some<- sample(as.numeric(as.character(some)))
+  some<-some-trunc(some)
+  #???
+  ks.test(fractional_x_k, "pnorm", mean=mean(some), sd=sd(some))
+}
+```
+
+```{r}
+for (axe in c("econ", "govt", "scty")){
+  young<-data[data$age =="Less than 18", axe]
+  general<-data[axe]
+  print(axe)
+  print("**************************")
+  alter<-"l"
+  if (axe=="scty"){
+    alter<-"g"
+  }
+  print(t.test(general, young, alternative = alter))
+}
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
