@@ -64,7 +64,11 @@ It should be taken into account when forming our hypotheses. This fact also make
 
 The views distribution plotting would actually be not so useful here, the representation of the distribution of participants parameters is sufficient for going on and composing our hypotheses. Let's proceed with testing.
 
+*There are some some stereotypes about political views, that we can hear. So, now we try to check it with statistic. As a* $H_0$ we set a statement, that every subgroup political views are similar as in all society, as alternative, we take our hypothesis.
+
 ## 1) Young people tend to be more progressive, liberty loving and social equality supporting in comparison with older generations
+
+*"If you're not a liberal when you're 25, you have no heart. If you're not a conservative by the time you're 35, you have no brain". This phrase is misattributed to Churchill, but does it really truthful? Now we can check it. It mean that in economic, government and society they have more points.*
 
 So, the hypothesis $H_0$ is already stated in the header. As an alternative we will use next statement : $H_1:$*The difference between the number of young people being liberal and older ones is insignificant*. In order to find out if we should reject $H_0$, we perform the *Welch Two-sample test* in order to find out the differences of means of views. Take a note that the views are estimated as on the political coordinate plane (meaning that the liberal views are those which take values less than zero).
 
@@ -78,11 +82,14 @@ for (axe in c("econ", "govt", "scty")){
 }
 ```
 
-As we can see from the results above, our p-values are quite small in all the test we carried on in different spheres. A p-value less than 0.05 is significant, so the null hypothesis should be rejected (which is strange and differs from our expectation..)
+As we can see from the results above, our p-values are quite small in all the test we carried on in different spheres. A p-value less than 0.05 is significant, so the null hypothesis should be rejected (which mean that stereotype is correct in this situation)
 
 Take a note that the fair amount of the respondents are young people and the gap in number of respondents between the generations is quite big, so it is fair to assume that further investigation should be conducted.
 
 ## 2) Entrepreneurs are more of markets axis than freelancers and freelancers are more of markets axis than permanent employees
+
+*Entrepreneurs and freelancers is those people, for which market is important part of their profession, so we can suppose, that their political views in economic tend to be more market (negative direction of axis of economic)*
+
 ```{r}
 for (work in c("Entrepreneur", "Freelance")){
   work_data<-data[data$work ==work, "econ"]
@@ -93,13 +100,18 @@ for (work in c("Entrepreneur", "Freelance")){
 }
 ```
 
+As we can see from the results above, our p-values are quite small in test we carried in this two categories. A p-value less than 0.05 is significant, so the null hypothesis should be rejected (which mean that stereotype is also correct)
+
 ## 3) Low study degree are more authority and traditional than the higher-degreed ones
+
+*Someone think, that low graded people are also more authority and traditionalist (usually, they live in rural region). So, we can check this statement. this views represented by negative direction of government and society axis.*
+
 ```{r}
 for (axe in c("govt", "scty")){
-  study<-data[data$study =="High School" | data$study=="Middle School", axe]
-  general<-data[axe]
+  low_degree<-data[data$study =="High School" | data$study=="Middle School", axe]
+  high_degree<-data[data$study =="Bachelor's Degree" | data$study=="Master's Degree", axe]
   print(axe)
   print("**************************")
-  print(t.test(general, study, alternative = "g"))
+  print(t.test(high_degree, low_degree, alternative = "g"))
 }
 ```
