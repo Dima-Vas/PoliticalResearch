@@ -6,7 +6,9 @@ output:
     df_print: paged
   pdf_document: default
 ---
+
 ## Please, have the next libraries installed :
+
 ```{r}
 require(BSDA)
 library(BSDA)
@@ -21,13 +23,17 @@ library(stringr)
 ```
 
 # Task
-For our research project we used data from https://www.kaggle.com/ . It is an Italian survey referring to people's political opinions regarding different aspects of their state system. We will process means, modes, deviations, skewnesses, kurtosises, quantiles of different parameters of the people who passed the survey, such as age, sex, work, education, in order to find out the answers on a few societal questions.
+
+For our research project we used data from <https://www.kaggle.com/> . It is an Italian survey referring to people's political opinions regarding different aspects of their state system. We will process means, modes, deviations, skewnesses, kurtosises, quantiles of different parameters of the people who passed the survey, such as age, sex, work, education, in order to find out the answers on a few societal questions.
+
 ```{r}
 path<-"dataset/preprocessed_anonymous.csv"
 data <-  read.csv(file = path, stringsAsFactors = FALSE)
 data
 ```
+
 We will actually need some visualizations in order to get the proper idea about our dataset. The age, sex, education and workplace distributions plotted will tell us more than simply the table above.
+
 ```{r}
 age_label_vec = c("Less than 18", "Between 18 and 25", "Between 26 and 35", "Between 36 and 45", "Between 46 and 55", "Between 56 and 65", "More than 65")
 sex_label_vec = c("M", "F", "N")
@@ -60,8 +66,8 @@ The views distribution plotting would actually be not so useful here, the repres
 
 ## 1) Young people tend to be more progressive, liberty loving and social equality supporting in comparison with older generations
 
-So, the hypothesis $H_0$ is already stated in the header. As an alternative we will use next statement : $H_1:$*The difference between the number of young people being liberal and older ones is insignificant*.
-In order to find out if we should reject $H_0$, we perform the *Welch Two-sample test* in order to find out the differences of means of views. Take a note that the views are estimated as on the political coordinate plane (meaning that the liberal views are those which take values less than zero). 
+So, the hypothesis $H_0$ is already stated in the header. As an alternative we will use next statement : $H_1:$*The difference between the number of young people being liberal and older ones is insignificant*. In order to find out if we should reject $H_0$, we perform the *Welch Two-sample test* in order to find out the differences of means of views. Take a note that the views are estimated as on the political coordinate plane (meaning that the liberal views are those which take values less than zero).
+
 ```{r}
 for (axe in c("econ", "govt", "scty")){
   young<-data[data$age =="Less than 18" | data$age=="Between 18 and 25", axe]
@@ -71,10 +77,29 @@ for (axe in c("econ", "govt", "scty")){
   print(t.test(general, young, alternative = "l"))
 }
 ```
+
 As we can see from the results above, our p-values are quite small in all the test we carried on in different spheres. A p-value less than 0.05 is significant, so the null hypothesis should be rejected (which is strange and differs from our expectation..)
 
 Take a note that the fair amount of the respondents are young people and the gap in number of respondents between the generations is quite big, so it is fair to assume that further investigation should be conducted.
 
 ## 2) Entrepreneurs are more of markets axis than freelancers and freelancers are more of markets axis than permanent employees
+```{r}
+for (work in c("Entrepreneur", "Freelance")){
+  work_data<-data[data$work ==work, "econ"]
+  general<-data["econ"]
+  print(work)
+  print("**************************")
+  print(t.test(general, work_data, alternative = "g"))
+}
+```
 
 ## 3) Low study degree are more authority and traditional than the higher-degreed ones
+```{r}
+for (axe in c("govt", "scty")){
+  study<-data[data$study =="High School" | data$study=="Middle School", axe]
+  general<-data[axe]
+  print(axe)
+  print("**************************")
+  print(t.test(general, study, alternative = "g"))
+}
+```

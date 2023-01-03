@@ -1,0 +1,316 @@
+[{
+	"id": 1,
+	"question": "Oppression by corporations is more of a concern than oppression by governments.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 2,
+	"question": "It is necessary for the government to intervene in the economy to protect consumers.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 3,
+	"question": "The freer the markets, the freer the people.",
+	"effect": {
+		"econ": -10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 4,
+	"question": "It is better to maintain a balanced budget than to ensure welfare for all citizens.",
+	"effect": {
+		"econ": -10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 5,
+	"question": "Publicly-funded research is more beneficial to the people than leaving it to the market.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 10
+	}
+}, {
+	"id": 6,
+	"question": "Tariffs on international trade are important to encourage local production.",
+	"effect": {
+		"econ": 5,
+		"dipl": 0,
+		"govt": -10,
+		"scty": 0
+	}
+}, {
+	"id": 7,
+	"question": "From each according to his ability, to each according to his needs.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 8,
+	"question": "It would be best if social programs were abolished in favor of private charity.",
+	"effect": {
+		"econ": -10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 9,
+	"question": "Taxes should be increased on the rich to provide for the poor.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 10,
+	"question": "Inheritance is a legitimate form of wealth.",
+	"effect": {
+		"econ": -10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": -5
+	}
+}, {
+	"id": 11,
+	"question": "Basic utilities like roads and electricity should be publicly owned.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 12,
+	"question": "Government intervention is a threat to the economy.",
+	"effect": {
+		"econ": -10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 13,
+	"question": "Those with a greater ability to pay should receive better healthcare.",
+	"effect": {
+		"econ": -10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 14,
+	"question": "Quality education is a right of all people.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 5
+	}
+}, {
+	"id": 15,
+	"question": "The means of production should belong to the workers who use them.",
+	"effect": {
+		"econ": 10,
+		"dipl": 0,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 16,
+	"question": "The United Nations should be abolished.",
+	"effect": {
+		"econ": 0,
+		"dipl": -10,
+		"govt": -5,
+		"scty": 0
+	}
+}, {
+	"id": 17,
+	"question": "Military action by our nation is often necessary to protect it.",
+	"effect": {
+		"econ": 0,
+		"dipl": -10,
+		"govt": -10,
+		"scty": 0
+	}
+}, {
+	"id": 18,
+	"question": "I support regional unions, such as the European Union.",
+	"effect": {
+		"econ": -5,
+		"dipl": 10,
+		"govt": 10,
+		"scty": 5
+	}
+}, {
+	"id": 19,
+	"question": "It is important to maintain our national sovereignty.",
+	"effect": {
+		"econ": 0,
+		"dipl": -10,
+		"govt": -5,
+		"scty": 0
+	}
+}, {
+	"id": 20,
+	"question": "A united world government would be beneficial to mankind.",
+	"effect": {
+		"econ": 0,
+		"dipl": 10,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 21,
+	"question": "It is more important to retain peaceful relations than to further our strength.",
+	"effect": {
+		"econ": 0,
+		"dipl": 10,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 22,
+	"question": "Wars do not need to be justified to other countries.",
+	"effect": {
+		"econ": 0,
+		"dipl": -10,
+		"govt": -10,
+		"scty": 0
+	}
+}, {
+	"id": 23,
+	"question": "Military spending is a waste of money.",
+	"effect": {
+		"econ": 0,
+		"dipl": 10,
+		"govt": 10,
+		"scty": 0
+	}
+}, {
+	"id": 24,
+	"question": "International aid is a waste of money.",
+	"effect": {
+		"econ": -5,
+		"dipl": -10,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 25,
+	"question": "My nation is great.",
+	"effect": {
+		"econ": 0,
+		"dipl": -10,
+		"govt": 0,
+		"scty": 0
+	}
+}, {
+	"id": 26,
+	"question": "Research should be conducted on an international scale.",
+	"effect": {
+		"econ": 0,
+		"dipl": 10,
+		"govt": 0,
+		"scty": 10
+	}
+}, {
+	"id": 27,
+	"question": "Governments should be accountable to the international community.",
+	"effect": {
+		"econ": 0,
+		"dipl": 10,
+		"govt": 5,
+		"scty": 0
+	}
+}, {
+	"id": 28,
+	"question": "Even when protesting an authoritarian government, violence is not acceptable.",
+	"effect": {
+		"econ": 0,
+		"dipl": 5,
+		"govt": -5,
+		"scty": 0
+	}
+}, {
+	"id": 29,
+	"question": "My religious values should be spread as much as possible.",
+	"effect": {
+		"econ": 0,
+		"dipl": -5,
+		"govt": -10,
+		"scty": -10
+	}
+}, {
+	"id": 30,
+	"question": "Our nation's values should be spread as much as possible.",
+	"effect": {
+		"econ": 0,
+		"dipl": -10,
+		"govt": -5,
+		"scty": 0
+	}
+}, {
+	"id": 31,
+	"question": "It is very important to maintain law and order.",
+	"effect": {
+		"econ": 0,
+		"dipl": -5,
+		"govt": -10,
+		"scty": -5
+	}
+}, {
+	"id": 32,
+	"question": "The general populace makes poor decisions.",
+	"effect": {
+		"econ": 0,
+		"dipl": 0,
+		"govt": -10,
+		"scty": 0
+	}
+}, {
+	"id": 33,
+	"question": "Physician-assisted suicide should be legal.",
+	"effect": {
+		"econ": 0,
+		"dipl": 0,
+		"govt": 10,
+		"scty": 0
+	}
+}, {
+	"id": 34,
+	"question": "The sacrifice of some civil liberties is necessary to protect us from acts of terrorism.",
+	"effect": {
+		"econ": 0,
+		"dipl": 0,
+		"govt": -10,
+		"scty": 0
+	}
+}, {
+	"id": 35,
+	"question": "Government surveillance is necessary in the modern world.",
+	"effect": {
+		"econ": 0,
+		"dipl": 0,
+		"govt": -10,
+		"scty": 0
+	}
+}]
