@@ -6,7 +6,7 @@ output:
     df_print: paged
   pdf_document: default
 ---
-# Please, have the next libraries installed :
+## Please, have the next libraries installed :
 ```{r}
 require(BSDA)
 library(BSDA)
@@ -58,7 +58,7 @@ It should be taken into account when forming our hypotheses. This fact also make
 
 The views distribution plotting would actually be not so useful here, the representation of the distribution of participants parameters is sufficient for going on and composing our hypotheses. Let's proceed with testing.
 
-# 1) Young people tend to be more progressive, liberty loving and social equality supporting in comparison with older generations
+## 1) Young people tend to be more progressive, liberty loving and social equality supporting in comparison with older generations
 
 So, the hypothesis $H_0$ is already stated in the header. As an alternative we will use next statement : $H_1:$*The difference between the number of young people being liberal and older ones is insignificant*.
 In order to find out if we should reject $H_0$, we perform the *Welch Two-sample test* in order to find out the differences of means of views. Take a note that the views are estimated as on the political coordinate plane (meaning that the liberal views are those which take values less than zero). 
@@ -72,3 +72,9 @@ for (axe in c("econ", "govt", "scty")){
 }
 ```
 As we can see from the results above, our p-values are quite small in all the test we carried on in different spheres. A p-value less than 0.05 is significant, so the null hypothesis should be rejected (which is strange and differs from our expectation..)
+
+Take a note that the fair amount of the respondents are young people and the gap in number of respondents between the generations is quite big, so it is fair to assume that further investigation should be conducted.
+
+## 2) Entrepreneurs are more of markets axis than freelancers and freelancers are more of markets axis than permanent employees
+
+## 3) Low study degree are more authority and traditional than the higher-degreed ones
