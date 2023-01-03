@@ -1,6 +1,10 @@
 ---
 title: "Political Research"
-output: html_notebook
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
 ---
 # Please, have the next libraries installed :
 ```{r}
@@ -52,29 +56,19 @@ Roughly saying, most of the survey participants are younger than 25 y.o. males g
 
 It should be taken into account when forming our hypotheses. This fact also makes influence on our hypotheses testing capabilities. That's why most of our hypotheses refer to young generation, not to the society at all.
 
-The views distribution plotting would actually be not so useful here, the representation of the distribution of participants parameters is sufficient for going on and composing our hypotheses.
+The views distribution plotting would actually be not so useful here, the representation of the distribution of participants parameters is sufficient for going on and composing our hypotheses. Let's proceed with testing.
 
-```{r}
-for (axe in c("econ", "dipl", "govt", "scty")){
-  some <- data[axe]
-  #???
-  some <- sample(as.numeric(as.character(some)))
-  some <-some-trunc(some)
-  #???
-  ks.test(fractional_x_k, "pnorm", mean=mean(some), sd=sd(some))
-}
-```
+# 1) Young people tend to be more progressive, liberty loving and social equality supporting in comparison with older generations
 
+So, the hypothesis $H_0$ is already stated in the header. As an alternative we will use next statement : $H_1:$*The difference between the number of young people being liberal and older ones is insignificant*.
+In order to find out if we should reject $H_0$, we perform the *Welch Two-sample test* in order to find out the differences of means of views. Take a note that the views are estimated as on the political coordinate plane (meaning that the liberal views are those which take values less than zero). 
 ```{r}
 for (axe in c("econ", "govt", "scty")){
-  young<-data[data$age =="Less than 18", axe]
+  young<-data[data$age =="Less than 18" | data$age=="Between 18 and 25", axe]
   general<-data[axe]
   print(axe)
   print("**************************")
-  alter<-"l"
-  if (axe=="scty"){
-    alter<-"g"
-  }
-  print(t.test(general, young, alternative = alter))
+  print(t.test(general, young, alternative = "l"))
 }
 ```
+As we can see from the results above, our p-values are quite small in all the test we carried on in different spheres. A p-value less than 0.05 is significant, so the null hypothesis should be rejected (which is strange and differs from our expectation..)
