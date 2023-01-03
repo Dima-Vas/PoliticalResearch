@@ -2,11 +2,7 @@
 title: "Political Research"
 output: html_notebook
 ---
-
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
+# Please, have the next libraries installed :
 ```{r}
 require(BSDA)
 library(BSDA)
@@ -20,18 +16,50 @@ library(tidyr)
 library(stringr)
 ```
 
+# Task
+For our research project we used data from https://www.kaggle.com/ . It is an Italian survey referring to people's political opinions regarding different aspects of their state system. We will process means, modes, deviations, skewnesses, kurtosises, quantiles of different parameters of the people who passed the survey, such as age, sex, work, education, in order to find out the answers on a few societal questions.
 ```{r}
 path<-"dataset/preprocessed_anonymous.csv"
 data <-  read.csv(file = path, stringsAsFactors = FALSE)
-
+data
 ```
+We will actually need some visualizations in order to get the proper idea about our dataset. The age, sex, education and workplace distributions plotted will tell us more than simply the table above.
+```{r}
+age_label_vec = c("Less than 18", "Between 18 and 25", "Between 26 and 35", "Between 36 and 45", "Between 46 and 55", "Between 56 and 65", "More than 65")
+sex_label_vec = c("M", "F", "N")
+study_label_vec = c("Middle School","High School", "Bachelor's Degree", "Master's Degree", "First Level Master Degree", "PhD")
+job_label_vec = c( "Student", "University Student", "Permanent Employee", "Fixed Term Employee", "Freelance", "Public Employee", "Entrepreneur",  "Post-Doc", "Looking for employment", "Retired")
+
+age_data_freq = match(data$age, age_label_vec)
+sex_data_freq = match(data$sex, sex_label_vec)
+study_data_freq = match(data$study, study_label_vec)
+work_data_freq = match(data$work, job_label_vec)
+
+hist(age_data_freq[!is.na(age_data_freq)], breaks = 20, main = paste("Age Distribution"), xaxt='n', xlab="Ages", col="white")
+axis(side=1, at=c(1:7), labels=age_label_vec)
+
+hist(sex_data_freq[!is.na(sex_data_freq)], breaks = 20, main = paste("Sex Distribution"), xaxt='n', xlab="Sex", col="white")
+axis(side=1, at=c(1:3), labels=sex_label_vec)
+
+hist(study_data_freq[!is.na(study_data_freq)], breaks = 20, main = paste("Study Distribution"), xaxt='n', xlab="Education", col="white")
+axis(side=1, at=c(1:6), labels=study_label_vec)
+
+hist(work_data_freq[!is.na(work_data_freq)], breaks = 20, main = paste("Job Distribution"), xaxt='n', xlab="Job", col="white")
+axis(side=1, at=c(1:10), labels=job_label_vec)
+```
+
+Roughly saying, most of the survey participants are younger than 25 y.o. males getting higher education and respectively mostly not working.
+
+It should be taken into account when forming our hypotheses. This fact also makes influence on our hypotheses testing capabilities. That's why most of our hypotheses refer to young generation, not to the society at all.
+
+The views distribution plotting would actually be not so useful here, the representation of the distribution of participants parameters is sufficient for going on and composing our hypotheses.
 
 ```{r}
 for (axe in c("econ", "dipl", "govt", "scty")){
-  some<-data[axe]
+  some <- data[axe]
   #???
-  some<- sample(as.numeric(as.character(some)))
-  some<-some-trunc(some)
+  some <- sample(as.numeric(as.character(some)))
+  some <-some-trunc(some)
   #???
   ks.test(fractional_x_k, "pnorm", mean=mean(some), sd=sd(some))
 }
@@ -50,9 +78,3 @@ for (axe in c("econ", "govt", "scty")){
   print(t.test(general, young, alternative = alter))
 }
 ```
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
-
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
-
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
